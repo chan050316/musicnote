@@ -9,7 +9,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {},
+  "devDependencies": {
+    "pug": "^3.0.2"
+  },
   "dependencies": {
     "express": "^4.17.2"
   }
