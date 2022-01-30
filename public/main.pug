@@ -5,8 +5,23 @@ html(lang="en")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title musicnote
+    link(href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
     style
       include ./stylesheets/reset.css
       include ./stylesheets/main.css
   body
-    h1 hello
+    div.filter
+    header.glassmorphism musicnote
+    
+    section
+      -for(var i = 0; i < 4; i++)
+        div.section_Box
+          div.day_name 이번주
+          div.list_boxs
+            -for(a = 0; a < 13; a++)
+              div.list 
+                input(type="checkbox", name="")
+                div.list_Text gmgpgggpggg - 앙
+                span.material-icons &#xE14D;
+
+

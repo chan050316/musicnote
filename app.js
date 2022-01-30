@@ -13,5 +13,4 @@ app.set("view engine", "pug");
 
 app.get("/", (req, res) => {
   res.render(__dirname + "/public/main.pug");
-  res.sendFile(__dirname + "/IMG/morning.jpeg");
 });

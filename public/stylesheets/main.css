@@ -1,8 +1,94 @@
 body {
   background-image: url(../IMG/morning.jpeg);
-  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
-h1 {
-  color: red;
+body .filter {
+  position: absolute;
+  z-index: -10;
+  height: 100vh;
+  width: 100vw;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px) brightness(115%);
+}
+
+header {
+  height: 105px;
+  width: auto;
+  line-height: 105px;
+  text-align: center;
+  font-size: 20px;
+}
+
+section {
+  height: 558px;
+  width: auto;
+  display: flex;
+  justify-content: center;
+}
+
+section .section_Box {
+  width: 282px;
+  margin: 0 25px 0 25px;
+
+  background-color: rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  border-radius: 5px;
+}
+
+.section_Box .day_name {
+  width: 230px;
+  height: 40px;
+  margin: 22px 26px;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 40px;
+
+  background-color: rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(30px) brightness(140%);
+}
+
+.section_Box .list_boxs {
+  height: 474px;
+  border-radius: 5px;
+
+  background-color: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(30px) brightness(125%);
+  overflow: scroll;
+}
+
+.section_Box .list_boxs .list {
+  height: 47px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section_Box .list_boxs .list input {
+  margin-right: auto;
+  margin-left: 7px;
+}
+
+.section_Box .list_boxs .list .list_Text {
+}
+
+.section_Box .list_boxs .list .material-icons {
+  margin-left: auto;
+  margin-right: 5px;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+
+.section_Box .list_boxs .list:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(30px) brightness(125%);
 }
