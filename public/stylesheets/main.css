@@ -92,3 +92,18 @@ section .section_Box {
   -webkit-backdrop-filter: blur(30px);
   backdrop-filter: blur(30px) brightness(125%);
 }
+
+body form input {
+  position: absolute;
+  border-radius: 5px;
+  width: 141px;
+  height: 30px;
+}
+
+body form input:nth-child(1) {
+  left: 80px;
+}
+
+body form input:nth-child(2) {
+  left: 220px;
+}
