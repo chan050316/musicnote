@@ -12,18 +12,23 @@ app.listen(PORTNUM, () => {
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.set("views", __dirname + "/views");
 app.set("view engine", "pug");
 
 app.get("/", (req, res) => {
-  res.render(__dirname + "/public/main.pug");
+  res.render("main.pug", { data: res.data });
 });
 
 app.post("/create", (req, res) => {
   const actor = req.body.actor;
   const song = req.body.song;
   const time = new Date();
-  const createAt = time.getHours() + time.getMinutes + time.getSeconds;
-  console.log(createAt);
+  const createAt =
+    JSON.stringify(time.getHours()) +
+    JSON.stringify(time.getMinutes()) +
+    JSON.stringify(time.getSeconds());
   // 데이터 베이스에 데이터 추가
-  res.redirect("/");
+  const data = [actor, song, createAt];
+  console.log(data);
+  res.redirect("/", data);
 });
