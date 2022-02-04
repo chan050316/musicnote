@@ -15,8 +15,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set("views", __dirname + "/views");
 app.set("view engine", "pug");
 
+let DATA = [];
+
 app.get("/", (req, res) => {
-  res.render("main.pug", { data: res.data });
+  res.render("main.pug", { data: DATA });
 });
 
 app.post("/create", (req, res) => {
@@ -24,11 +26,13 @@ app.post("/create", (req, res) => {
   const song = req.body.song;
   const time = new Date();
   const createAt =
+    JSON.stringify(time.getFullYear()) +
+    JSON.stringify(time.getMonth()) +
+    JSON.stringify(time.getDate()) +
     JSON.stringify(time.getHours()) +
     JSON.stringify(time.getMinutes()) +
     JSON.stringify(time.getSeconds());
   // 데이터 베이스에 데이터 추가
-  const data = [actor, song, createAt];
-  console.log(data);
-  res.redirect("/", data);
+  DATA = [actor, song, createAt];
+  res.redirect("/");
 });
