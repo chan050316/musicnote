@@ -18,10 +18,10 @@ html(lang="en")
         div.section_Box
           div.day_name 이번주
           div.list_boxs
-            -for(a = 0; a < 13; a++)
+            -for(j = 0; j < data.length; j++)
               div.list 
                 input(type="checkbox", name="")
-                div.list_Text #{data}
+                div.list_Text #{data[j].actor}
                 span.material-icons &#xE14D;
     form(action="/create", method="post") 
       input(type="text", name="actor", placeholder="actor")
