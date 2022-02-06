@@ -19,6 +19,8 @@ let DATA = [];
 app.get("/", (req, res) => {
   res.render("main.pug", { data: DATA });
   console.log(DATA);
+  console.log(typeof DATA);
+  console.log(DATA.length);
 });
 
 app.post("/create", (req, res) => {
@@ -33,6 +35,6 @@ app.post("/create", (req, res) => {
     JSON.stringify(time.getMinutes()) +
     JSON.stringify(time.getSeconds());
   // 데이터 베이스에 데이터 추가
-  DATA += { actor: actor, song: song, createAt: createAt };
+  DATA += JSON.stringify({ actor: actor, song: song, createAt: createAt });
   res.redirect("/");
 });

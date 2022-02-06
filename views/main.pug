@@ -12,7 +12,6 @@ html(lang="en")
   body
     div.filter
     header.glassmorphism musicnote
-    
     section
       -for(var i = 0; i < 4; i++)
         div.section_Box
@@ -21,7 +20,7 @@ html(lang="en")
             -for(j = 0; j < data.length; j++)
               div.list 
                 input(type="checkbox", name="")
-                div.list_Text #{data[j].actor}
+                div.list_Text #{data.actor}
                 span.material-icons &#xE14D;
     form(action="/create", method="post") 
       input(type="text", name="actor", placeholder="actor")
