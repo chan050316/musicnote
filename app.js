@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const { redirect } = require("express/lib/response");
 
 const PORTNUM = "3000";
 
