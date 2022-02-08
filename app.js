@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const { sequelize } = require("./models");
 const models = require("./models");
+const Songs = models.Song;
 
 sequelize
   .sync({ force: false })
@@ -25,13 +26,20 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set("views", __dirname + "/views");
 app.set("view engine", "pug");
 
-let DATA = [];
+app.get("/", async (req, res) => {
+  const songs = await Songs.findAll();
+  let DATA = [];
 
-app.get("/", (req, res) => {
-  res.render("main.pug", { data: DATA });
+  for (const song of songs) {
+    DATA.push({
+      id: song.id,
+      song: song.song,
+      actor: song.actor,
+    });
+  }
+
   console.log(DATA);
-  console.log(typeof DATA);
-  console.log(DATA.length);
+  res.render("main.pug", { data: DATA });
 });
 
 app.post("/create", (req, res) => {
@@ -58,6 +66,5 @@ app.post("/create", (req, res) => {
       console.log(err);
     });
 
-  DATA += { actor: actor, song: song, createAt: createAt };
   res.redirect("/");
 });
