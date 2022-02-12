@@ -15,6 +15,7 @@ sequelize
   });
 
 const PORTNUM = "3000";
+const DATE = ["이번주", "일주전", "이주전", "삼주전"];
 
 app.listen(PORTNUM, () => {
   console.log("start!, I'm listen on port" + PORTNUM);
@@ -28,18 +29,20 @@ app.set("view engine", "pug");
 
 app.get("/", async (req, res) => {
   const songs = await Songs.findAll();
-  let DATA = [];
+
+  const DATA = [];
 
   for (const song of songs) {
     DATA.push({
       id: song.id,
       song: song.song,
       actor: song.actor,
+      createAt: song.createdAt,
     });
   }
 
   console.log(DATA);
-  res.render("main.pug", { data: DATA });
+  res.render("main.pug", { data: DATA, date: DATE });
 });
 
 app.post("/create", (req, res) => {
