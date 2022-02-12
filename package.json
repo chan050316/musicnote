@@ -2,13 +2,11 @@
   "name": "musicnote",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
   "devDependencies": {
     "pug": "^3.0.2"
@@ -16,6 +14,7 @@
   "dependencies": {
     "body-parser": "^1.19.1",
     "express": "^4.17.2",
+    "gh-pages": "^3.2.3",
     "global": "^4.4.0",
     "mysql2": "^2.3.3",
     "sequelize": "^6.15.0"
