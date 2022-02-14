@@ -13,16 +13,17 @@ html(lang="en")
     div.filter
     header.glassmorphism musicnote
     section
-      -for(var i = 0; i < 4; i++)
-        div.section_Box
-          div.day_name #{date[i]}
-          div.list_boxs
-            -for(j = 0; j < data.length; j++)
-              div.list 
-                input(type="checkbox", name="")
-                div.list_Text #{data[j].song} - #{data[j].actor}
-                span.material-icons &#xE14D;
+      div.section_Box
+        div.day_name musiclist
+        div.list_boxs
+          -for(j = 0; j < data.length; j++)
+            div.list 
+              input(type="checkbox", name="")
+              div.list_Text #{data[j].song} - #{data[j].actor}
+              span.material-icons &#xE14D;
     form(action="/create", method="post") 
       input(type="text", name="actor", placeholder="actor")
       input(type="text", name="song", placeholder="song", required)
       input(type="submit", value="", style="display:none;")
+
+    input(type="text", name="search", placeholder="Search song name").searchSong

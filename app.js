@@ -15,7 +15,6 @@ sequelize
   });
 
 const PORTNUM = "3000";
-const DATE = ["이번주", "일주전", "이주전", "삼주전"];
 
 app.listen(PORTNUM, () => {
   console.log("start!, I'm listen on port" + PORTNUM);
@@ -42,7 +41,7 @@ app.get("/", async (req, res) => {
   }
 
   console.log(DATA);
-  res.render("main.pug", { data: DATA, date: DATE });
+  res.render("main.pug", { data: DATA });
 });
 
 app.post("/create", (req, res) => {

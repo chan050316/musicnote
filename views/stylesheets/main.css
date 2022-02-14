@@ -31,7 +31,7 @@ section {
 }
 
 section .section_Box {
-  width: 282px;
+  width: 500px;
   margin: 0 25px 0 25px;
 
   background-color: rgba(255, 255, 255, 0.3);
@@ -43,7 +43,7 @@ section .section_Box {
 .section_Box .day_name {
   width: 230px;
   height: 40px;
-  margin: 22px 26px;
+  margin: 22px auto;
   border-radius: 5px;
   text-align: center;
   line-height: 40px;
@@ -106,4 +106,12 @@ body form input:nth-child(1) {
 
 body form input:nth-child(2) {
   left: 220px;
+}
+
+body .searchSong {
+  position: absolute;
+  border-radius: 5px;
+  width: 201px;
+  height: 30px;
+  right: 160px;
 }
