@@ -18,9 +18,9 @@ html(lang="en")
         div.list_boxs
           -for(j = 0; j < data.length; j++)
             div.list 
-              input(type="checkbox", name="")
+              input(type="checkbox", name="", class="checkBox")
               div.list_Text #{data[j].song} - #{data[j].actor}
-              span.material-icons &#xE14D;
+              span.material-icons.copyBtn &#xE14D;
     form(action="/create", method="post") 
       input(type="text", name="actor", placeholder="actor")
       input(type="text", name="song", placeholder="song", required)

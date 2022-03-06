@@ -1,4 +1,6 @@
 const searchInput = document.querySelector(".searchSong");
+const checkBox = document.querySelectorAll(".checkBox");
+const copyBtn = document.querySelectorAll(".copyBtn");
 
 function searchSong() {
   const value = searchInput.value.toUpperCase();
@@ -14,5 +16,26 @@ function searchSong() {
     }
   }
 }
+function check() {
+  const listText = this.nextSibling;
+  listText.classList.toggle("checkBox");
+}
+function copying() {
+  const textarea = document.createElement("textarea");
+  document.body.appendChild(textarea);
+  const copyText = this.previousSibling.innerText;
+  textarea.value = copyText;
+  textarea.select();
+  document.execCommand("copy");
+  alert("Copied!");
+
+  document.body.removeChild(textarea);
+}
 
 searchInput.addEventListener("keyup", searchSong);
+checkBox.forEach(Box => {
+  Box.addEventListener("click", check);
+});
+copyBtn.forEach(Btn => {
+  Btn.addEventListener("click", copying);
+});

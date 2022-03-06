@@ -115,3 +115,7 @@ body .searchSong {
   height: 30px;
   right: 160px;
 }
+
+.checkBox {
+  text-decoration: line-through;
+}
