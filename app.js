@@ -36,7 +36,6 @@ app.get("/", async (req, res) => {
       id: song.id,
       song: song.song,
       actor: song.actor,
-      createAt: song.createdAt,
     });
   }
 
@@ -47,15 +46,6 @@ app.get("/", async (req, res) => {
 app.post("/create", (req, res) => {
   const actor = req.body.actor;
   const song = req.body.song;
-  const time = new Date();
-  const createAt =
-    JSON.stringify(time.getFullYear()) +
-    JSON.stringify(time.getMonth()) +
-    JSON.stringify(time.getDate()) +
-    JSON.stringify(time.getHours()) +
-    JSON.stringify(time.getMinutes()) +
-    JSON.stringify(time.getSeconds());
-
   // 데이터 베이스에 데이터 추가
   models.Song.create({
     song: actor,
