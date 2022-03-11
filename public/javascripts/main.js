@@ -1,6 +1,9 @@
 const searchInput = document.querySelector(".searchSong");
 const checkBox = document.querySelectorAll(".checkBox");
 const copyBtn = document.querySelectorAll(".copyBtn");
+const deleteBtn = document.querySelectorAll(".deleteBtn");
+const deleteInput = document.querySelector(".deleteInput");
+const deleteSongName = document.querySelectorAll(".deleteSongName");
 
 function searchSong() {
   const value = searchInput.value.toUpperCase();
@@ -28,8 +31,11 @@ function copying() {
   textarea.select();
   document.execCommand("copy");
   alert("Copied!");
-
   document.body.removeChild(textarea);
+}
+function deleting() {
+  deleteSongName.innerText = this.parentNode.nextSibling.innerText;
+  deleteInput.click();
 }
 
 searchInput.addEventListener("keyup", searchSong);
@@ -38,4 +44,7 @@ checkBox.forEach(Box => {
 });
 copyBtn.forEach(Btn => {
   Btn.addEventListener("click", copying);
+});
+deleteBtn.forEach(Btn => {
+  Btn.addEventListener("click", deleting);
 });

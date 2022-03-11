@@ -71,7 +71,7 @@ section .section_Box {
   align-items: center;
 }
 
-.section_Box .list_boxs .list input {
+.section_Box .list_boxs .list .deleteForm {
   margin-right: auto;
   margin-left: 7px;
 }
@@ -93,18 +93,18 @@ section .section_Box {
   backdrop-filter: blur(30px) brightness(125%);
 }
 
-body form input {
+body .createForm input {
   position: absolute;
   border-radius: 5px;
   width: 141px;
   height: 30px;
 }
 
-body form input:nth-child(1) {
+body form .writeActor {
   left: 80px;
 }
 
-body form input:nth-child(2) {
+body form .writeSong {
   left: 220px;
 }
 

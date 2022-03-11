@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const { sequelize } = require("./models");
+const methodOverride = require("method-override");
 const models = require("./models");
 const Songs = models.Song;
 
@@ -22,6 +23,7 @@ app.listen(PORTNUM, () => {
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(methodOverride("_method"));
 
 app.set("views", __dirname + "/views");
 app.set("view engine", "pug");
@@ -59,4 +61,13 @@ app.post("/create", (req, res) => {
     });
 
   res.redirect("/");
+});
+
+app.delete("/delete", (req, res) => {
+  console.log(req);
+  models.Song.destroy({
+    where: { song: "a" },
+  }).then(() => {
+    res.redirect("/");
+  });
 });

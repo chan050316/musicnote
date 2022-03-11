@@ -18,15 +18,18 @@ html(lang="en")
         div.list_boxs
           -for(j = 0; j < data.length; j++)
             div.list 
-              input(type="checkbox", name="", class="checkBox")
+              form.deleteForm(action="/delete?_method=delete", method="post")
+                input.deleteSongName(type="text", style="display:none")
+                span.material-icons.deleteBtn &#xe92e;
+                button.deleteInput(style="display:none")
               div.list_Text #{data[j].song} - #{data[j].actor}
               span.material-icons.copyBtn &#xE14D;
-    form(action="/create", method="post") 
-      input(type="text", name="actor", placeholder="actor")
-      input(type="text", name="song", placeholder="song", required)
+    form.createForm(action="/create", method="post") 
+      input.writeActor(type="text", name="actor", placeholder="actor")
+      input.writeSong(type="text", name="song", placeholder="song", required)
       input(type="submit", value="", style="display:none;")
 
-    input(type="text", name="search", placeholder="Search song name").searchSong
+    input.searchSong(type="text", name="search", placeholder="Search song name")
   script(src="javascripts/main.js")
 
 
