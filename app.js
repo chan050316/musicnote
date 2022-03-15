@@ -38,6 +38,7 @@ app.get("/", async (req, res) => {
       id: song.id,
       song: song.song,
       actor: song.actor,
+      fullName: song.fullName,
     });
   }
 
@@ -52,6 +53,7 @@ app.post("/create", (req, res) => {
   models.Song.create({
     song: actor,
     actor: song,
+    fullName: actor + " - " + song,
   })
     .then(result => {
       console.log(result);
@@ -64,9 +66,8 @@ app.post("/create", (req, res) => {
 });
 
 app.delete("/delete", (req, res) => {
-  console.log(req);
   models.Song.destroy({
-    where: { song: "a" },
+    where: { fullName: req.body.deleteName },
   }).then(() => {
     res.redirect("/");
   });

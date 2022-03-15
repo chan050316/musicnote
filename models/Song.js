@@ -13,6 +13,9 @@ module.exports = (sequelize, DataTypes) => {
       actor: {
         type: DataTypes.STRING(50),
       },
+      fullName: {
+        type: DataTypes.STRING(50),
+      },
     },
     {
       charset: "utf8", // 한국어 설정
