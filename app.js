@@ -15,7 +15,7 @@ sequelize
     console.error(err);
   });
 
-const PORTNUM = process.env.PORT || 3000;
+const PORTNUM = process.env.PORT || 4000;
 
 app.listen(PORTNUM, () => {
   console.log("start!, I'm listen on port" + PORTNUM);
