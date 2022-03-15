@@ -19,18 +19,15 @@ html(lang="en")
           -for(j = 0; j < data.length; j++)
             div.list 
               form.deleteForm(action="/delete?_method=delete", method="post")
-                input.deleteSongName(type="text", style="display:none")
+                input.deleteSongName(type="text", style="display:none", name="deleteName")
                 span.material-icons.deleteBtn &#xe92e;
-                button.deleteInput(style="display:none")
+                input(type="submit", style="display:none")
               div.list_Text #{data[j].song} - #{data[j].actor}
               span.material-icons.copyBtn &#xE14D;
     form.createForm(action="/create", method="post") 
       input.writeActor(type="text", name="actor", placeholder="actor")
       input.writeSong(type="text", name="song", placeholder="song", required)
-      input(type="submit", value="", style="display:none;")
+      input(type="submit", style="display:none;")
 
     input.searchSong(type="text", name="search", placeholder="Search song name")
   script(src="javascripts/main.js")
-
-
-    

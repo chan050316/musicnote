@@ -2,8 +2,6 @@ const searchInput = document.querySelector(".searchSong");
 const checkBox = document.querySelectorAll(".checkBox");
 const copyBtn = document.querySelectorAll(".copyBtn");
 const deleteBtn = document.querySelectorAll(".deleteBtn");
-const deleteInput = document.querySelector(".deleteInput");
-const deleteSongName = document.querySelectorAll(".deleteSongName");
 
 function searchSong() {
   const value = searchInput.value.toUpperCase();
@@ -34,8 +32,8 @@ function copying() {
   document.body.removeChild(textarea);
 }
 function deleting() {
-  deleteSongName.innerText = this.parentNode.nextSibling.innerText;
-  deleteInput.click();
+  this.previousSibling.value = this.parentNode.nextSibling.innerText;
+  this.parentNode.submit();
 }
 
 searchInput.addEventListener("keyup", searchSong);
