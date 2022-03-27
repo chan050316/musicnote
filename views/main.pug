@@ -24,7 +24,7 @@ html(lang="en")
                 input(type="submit", style="display:none")
               div.list_Text #{data[j].song} - #{data[j].actor}
               span.material-icons.copyBtn &#xE14D;
-    form.createForm(action="/create", method="post") 
+    form.createForm(action="/create", method="post")
       input.writeActor(type="text", name="actor", placeholder="actor")
       input.writeSong(type="text", name="song", placeholder="song", required)
       input(type="submit", style="display:none;")
