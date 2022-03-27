@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
+    "username": "admin",
     "password": "kingzone1234.",
     "database": "musicnote",
-    "host": "127.0.0.1",
+    "host": "musicnote.cyp8vmv5yeru.ap-northeast-2.rds.amazonaws.com",
     "dialect": "mysql"
   }
 }

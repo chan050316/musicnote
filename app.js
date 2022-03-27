@@ -5,9 +5,6 @@ const { sequelize } = require("./models");
 const methodOverride = require("method-override");
 const models = require("./models");
 const Songs = models.Song;
-require("dotenv").config();
-
-console.log("확인::" + process.env.PORT);
 
 sequelize
   .sync({ force: false })
