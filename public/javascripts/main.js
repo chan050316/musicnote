@@ -32,7 +32,8 @@ function copying() {
   document.body.removeChild(textarea);
 }
 function deleting(e) {
-  const deleteSongName = e.target.childNodes[1].innerText;
+  console.dir(e.target);
+  // deleteSongName =
   $.ajax({
     method: "DELETE",
     url: `/song/${deleteSongName}`,

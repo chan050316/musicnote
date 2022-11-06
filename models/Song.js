@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 // Define Schemes
 const songSchema = new mongoose.Schema(
   {
-    // songId: { type: Number, required: true, unique: true },
     name: { type: String, required: true },
     actor: { type: String, default: false },
   },
@@ -13,4 +12,4 @@ const songSchema = new mongoose.Schema(
 );
 
 // Create Model & Export
-module.exports = mongoose.model("Todo", songSchema);
+module.exports = mongoose.model("song", songSchema);

@@ -11,11 +11,11 @@ router.get("/", async (req, res) => {
 router.post("/create", async (req, res) => {
   const name = req.body.name;
   const actor = req.body.actor;
-  console.log(req.body);
   // 데이터 베이스에 데이터 추가
-  const song = new Song({ name, actor });
+  const memo = new Song({ name, actor });
+  console.log(memo);
   try {
-    await song.save();
+    await memo.save(); //
     res.redirect("/");
   } catch (e) {
     res.status(500).send(e);

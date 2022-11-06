@@ -18,7 +18,6 @@ html(lang="en")
         div.list_boxs
           -for(song of data)
             div.list 
-              //- form.deleteForm(method="POST", action=`/song/${song.name}?_method=DELETE`)
               span.material-icons.deleteBtn &#xe92e;
                 span.deleteSongName(style="display:none;") #{song.name}
               div.list_Text #{song.name} - #{song.actor}
