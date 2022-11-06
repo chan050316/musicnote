@@ -16,18 +16,18 @@ html(lang="en")
       div.section_Box
         div.day_name musiclist
         div.list_boxs
-          -for(j = 0; j < data.length; j++)
+          -for(song of data)
             div.list 
-              form.deleteForm(action="/delete?_method=delete", method="post")
-                input.deleteSongName(type="text", style="display:none", name="deleteName")
-                span.material-icons.deleteBtn &#xe92e;
-                input(type="submit", style="display:none")
-              div.list_Text #{data[j].song} - #{data[j].actor}
+              //- form.deleteForm(method="POST", action=`/song/${song.name}?_method=DELETE`)
+              span.material-icons.deleteBtn &#xe92e;
+                span.deleteSongName(style="display:none;") #{song.name}
+              div.list_Text #{song.name} - #{song.actor}
               span.material-icons.copyBtn &#xE14D;
     form.createForm(action="/create", method="post")
+      input.writeSong(type="text", name="name", placeholder="name", required)
       input.writeActor(type="text", name="actor", placeholder="actor")
-      input.writeSong(type="text", name="song", placeholder="song", required)
       input(type="submit", style="display:none;")
 
     input.searchSong(type="text", name="search", placeholder="Search song name")
+  script(src="https://code.jquery.com/jquery-3.4.1.min.js")
   script(src="javascripts/main.js")

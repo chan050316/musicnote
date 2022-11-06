@@ -31,9 +31,15 @@ function copying() {
   alert("Copied!");
   document.body.removeChild(textarea);
 }
-function deleting() {
-  this.previousSibling.value = this.parentNode.nextSibling.innerText;
-  this.parentNode.submit();
+function deleting(e) {
+  const deleteSongName = e.target.childNodes[1].innerText;
+  $.ajax({
+    method: "DELETE",
+    url: `/song/${deleteSongName}`,
+  }).done(function (result) {
+    //AJAX 성공시 실행 코드
+    console.log(result);
+  });
 }
 
 searchInput.addEventListener("keyup", searchSong);

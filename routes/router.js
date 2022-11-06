@@ -4,12 +4,14 @@ const Song = require("../models/song");
 
 router.get("/", async (req, res) => {
   const songs = await Song.find();
+  console.log(songs);
   res.render("main.pug", { data: songs });
 });
 
 router.post("/create", async (req, res) => {
-  const actor = req.body.actor;
   const name = req.body.name;
+  const actor = req.body.actor;
+  console.log(req.body);
   // 데이터 베이스에 데이터 추가
   const song = new Song({ name, actor });
   try {
@@ -20,12 +22,19 @@ router.post("/create", async (req, res) => {
   }
 });
 
-router.delete("/delete", (req, res) => {
-  models.Song.destroy({
-    where: { fullName: req.body.deleteName },
-  }).then(() => {
+router.delete("/song/:name", async (req, res) => {
+  const name = req.params.name;
+  try {
+    await Song.deleteOne({ name });
     res.redirect("/");
-  });
+  } catch (e) {
+    res.status(500).send(e);
+  }
+  // models.Song.destroy({
+  //   where: { fullName: req.body.deleteName },
+  // }).then(() => {
+  //   res.redirect("/");
+  // });
 });
 
 module.exports = router;

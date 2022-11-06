@@ -71,11 +71,6 @@ section .section_Box {
   align-items: center;
 }
 
-.section_Box .list_boxs .list .deleteForm {
-  margin-right: auto;
-  margin-left: 7px;
-}
-
 .section_Box .list_boxs .list .list_Text {
 }
 
@@ -85,6 +80,11 @@ section .section_Box {
   font-size: 15px;
   color: rgba(0, 0, 0, 0.7);
   cursor: pointer;
+}
+
+.section_Box .list_boxs .list .deleteBtn {
+  margin-right: auto;
+  margin-left: 7px;
 }
 
 .section_Box .list_boxs .list:hover {
