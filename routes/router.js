@@ -12,17 +12,16 @@ router.post("/create", async (req, res) => {
   const name = req.body.name;
   const actor = req.body.actor;
   // 데이터 베이스에 데이터 추가
-  const memo = new Song({ name, actor });
-  console.log(memo);
+  const song = new Song({ name, actor });
   try {
-    await memo.save(); //
+    await song.save();
     res.redirect("/");
   } catch (e) {
     res.status(500).send(e);
   }
 });
 
-router.delete("/song/:name", async (req, res) => {
+router.post("/song/:name", async (req, res) => {
   const name = req.params.name;
   try {
     await Song.deleteOne({ name });
@@ -30,11 +29,6 @@ router.delete("/song/:name", async (req, res) => {
   } catch (e) {
     res.status(500).send(e);
   }
-  // models.Song.destroy({
-  //   where: { fullName: req.body.deleteName },
-  // }).then(() => {
-  //   res.redirect("/");
-  // });
 });
 
 module.exports = router;

@@ -31,15 +31,15 @@ function copying() {
   alert("Copied!");
   document.body.removeChild(textarea);
 }
-function deleting(e) {
-  console.dir(e.target);
-  // deleteSongName =
+function deleting() {
+  const deleteSongName = this.nextSibling.innerText;
   $.ajax({
-    method: "DELETE",
+    cache: false,
+    method: "POST",
     url: `/song/${deleteSongName}`,
-  }).done(function (result) {
-    //AJAX 성공시 실행 코드
-    console.log(result);
+    success: function () {
+      location.reload();
+    },
   });
 }
 
