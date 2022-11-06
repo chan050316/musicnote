@@ -1,41 +1,23 @@
 const express = require("express");
 const router = express.Router();
+const Song = require("../models/song");
 
 router.get("/", async (req, res) => {
-  const songs = await Songs.findAll();
-
-  const DATA = [];
-
-  for (const song of songs) {
-    DATA.push({
-      id: song.id,
-      song: song.song,
-      actor: song.actor,
-      fullName: song.fullName,
-    });
-  }
-
-  console.log(DATA);
-  res.render("main.pug", { data: DATA });
+  const songs = await Song.find();
+  res.render("main.pug", { data: songs });
 });
 
-router.post("/create", (req, res) => {
+router.post("/create", async (req, res) => {
   const actor = req.body.actor;
-  const song = req.body.song;
+  const name = req.body.name;
   // 데이터 베이스에 데이터 추가
-  models.Song.create({
-    song: actor,
-    actor: song,
-    fullName: actor + " - " + song,
-  })
-    .then(result => {
-      console.log(result);
-    })
-    .catch(err => {
-      console.log(err);
-    });
-
-  res.redirect("/");
+  const song = new Song({ name, actor });
+  try {
+    await song.save();
+    res.redirect("/");
+  } catch (e) {
+    res.status(500).send(e);
+  }
 });
 
 router.delete("/delete", (req, res) => {

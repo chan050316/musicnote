@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 // Define Schemes
 const songSchema = new mongoose.Schema(
   {
-    songid: { type: Number, required: true, unique: true },
+    // songId: { type: Number, required: true, unique: true },
     name: { type: String, required: true },
     actor: { type: String, default: false },
   },
